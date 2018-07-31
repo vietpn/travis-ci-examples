@@ -8,8 +8,6 @@ addons:
 
 install: npm install
 
-install: npm install
-
 before_install:
 - openssl aes-256-cbc -K $encrypted_efbcfcc9eef6_key -iv $encrypted_efbcfcc9eef6_iv
   -in deploy_key.enc -out deploy_key -d
