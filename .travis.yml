@@ -1,12 +1,8 @@
 # see https://docs.travis-ci.com/user/languages/javascript-with-nodejs/ for more hints
 language: node_js
-
 node_js:
-  - "stable"
-  
-cache:
-  directories:
-  - node_modules
+- node
 
-script:
-  - npm test
+addons:
+  ssh_knows_host: 66.42.50.117 
+install: npm install
