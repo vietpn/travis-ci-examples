@@ -15,7 +15,7 @@ before_install:
 - chmod 600 ./deploy_rsa
 - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - ssh-add ./deploy_rsa
-- ssh -i ./deploy_key root@66.42.50.117 pwd
+- ssh -i ./deploy_rsa root@66.42.50.117 pwd
 
 deploy:
   provider: script
