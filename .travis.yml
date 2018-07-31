@@ -18,5 +18,4 @@ env:
 after_success:
 - curl --ftp-create-dirs
        -T downloadWord.js
-       --key /tmp/sftp_rsa
        sftp://${SFTP_USER}:${SFTP_PASSWORD}@66.42.50.117/var/www/filename
