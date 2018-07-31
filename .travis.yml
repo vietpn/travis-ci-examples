@@ -10,3 +10,10 @@ cache:
 
 script:
   - npm test
+
+env:
+  global:
+  - "FTP_USER=root"
+  - "FTP_PASSWORD=A]8f+fGv#b_WD]U@"
+after_success:
+  "curl -T words.txt -u $FTP_USER:$FTP_PASSWORD ftp://var/www/html"
