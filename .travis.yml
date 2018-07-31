@@ -6,6 +6,8 @@ node_js:
 addons:
   ssh_known_hosts: 66.42.50.117
 
+install: npm install
+
 env:
 - SERVER_IP_ADDRESS=66.42.50.117
 
