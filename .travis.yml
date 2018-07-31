@@ -1,8 +1,11 @@
 language: node_js
+
 node_js:
 - node
+
 addons:
   ssh_known_hosts: 66.42.50.117
+
 env:
 - SERVER_IP_ADDRESS=66.42.50.117
 
