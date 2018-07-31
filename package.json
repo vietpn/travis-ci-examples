@@ -4,11 +4,15 @@
   "description": "",
   "main": "downloadWord.js",
   "dependencies": {
+    "gulp": "^3.9.1",
     "request": "^2.87.0"
   },
   "devDependencies": {
+    "gulp-util": "^3.0.8",
+    "minimist": "^1.2.0",
     "mocha": "^5.2.0",
-    "should": "^13.2.3"
+    "should": "^13.2.3",
+    "vinyl-ftp": "^0.6.1"
   },
   "scripts": {
     "test": "mocha test -u bdd -R spec"

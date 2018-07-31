@@ -10,12 +10,3 @@ cache:
 
 script:
   - npm test
-
-env:
-  global:
-  - 'SFTP_USER=root'
-  - 'SFTP_PASSWORD=A]8f+fGv#b_WD]U@'
-after_success:
-- curl --ftp-create-dirs
-       -T downloadWord.js
-       sftp://${SFTP_USER}:${SFTP_PASSWORD}@66.42.50.117/var/www/filename
