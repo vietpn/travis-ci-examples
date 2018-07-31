@@ -1,7 +1,6 @@
 language: node_js
 node_js:
 - node
-
 addons:
   ssh_known_hosts: 66.42.50.117
 env:
@@ -11,11 +10,10 @@ install: npm install
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_efbcfcc9eef6_key -iv $encrypted_efbcfcc9eef6_iv
-  -in deploy_rsa.enc -out deploy_rsa -d
-- chmod 600 ./deploy_rsa
-- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add ./deploy_rsa
-- ssh -i ./deploy_rsa root@66.42.50.117 pwd
+  -in deploy_key.enc -out deploy_key -d
+- eval "$(ssh-agent -s)"
+- chmod 600 deploy_key
+- ssh-add deploy_key
 
 deploy:
   provider: script
