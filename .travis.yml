@@ -1,8 +1,15 @@
-# see https://docs.travis-ci.com/user/languages/javascript-with-nodejs/ for more hints
 language: node_js
 node_js:
 - node
+env:
+- SERVER_IP_ADDRESS=66.42.50.117
 
-addons:
-  ssh_knows_host: 66.42.50.117 
-install: npm install
+before_install:
+- openssl aes-256-cbc -K $encrypted_efbcfcc9eef6_key -iv $encrypted_efbcfcc9eef6_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_rsa
+- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- ssh-add ./deploy_rsa
+# test ssh connection for: https://github.com/dwyl/learn-travis/issues/42
+- ssh -i ./deploy_rsa root@66.42.50.117 pwd
