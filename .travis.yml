@@ -13,7 +13,10 @@ script:
 
 env:
   global:
-  - "FTP_USER=root"
-  - "FTP_PASSWORD=A]8f+fGv#b_WD]U@"
+  - 'SFTP_USER=root'
+  - 'SFTP_PASSWORD=A]8f+fGv#b_WD]U@'
 after_success:
-  "curl -T words.txt -u $FTP_USER:$FTP_PASSWORD ftp://var/www/html"
+- curl --ftp-create-dirs
+       -T downloadWord.js
+       --key /tmp/sftp_rsa
+       sftp://${SFTP_USER}:${SFTP_PASSWORD}@66.42.50.117/var/www/filename
